@@ -39,7 +39,7 @@ onMounted(() => {
       getProgress(route.params.taskId as string)
         .then((data: DownloadProgress) => {
           progress.value = data
-          if (data.status === "complete") {
+          if (data.status === "complete" || data.status === "failed") {
             clearInterval(timerId)
           }
         })
