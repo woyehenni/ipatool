@@ -1,5 +1,5 @@
 export interface App {
-  id: number
+  trackId: number
   bundleId: string
   appName: string
   icon: string
@@ -9,7 +9,7 @@ export interface App {
 }
 
 export interface Version {
-  id: number
+  trackId: number
   bundle_version: string
   external_identifier: string
   created_at: string

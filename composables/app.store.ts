@@ -40,13 +40,13 @@ export const searchAppVersions = async (trackId: string) => {
   const appsStore = useAppStore()
   appsStore.value.loading = true
   const { data, error, pending }: any = await useFetch("/api/apps/version", {
-    params: { id: trackId },
+    params: { trackId },
   })
   appsStore.value.loading = pending.value
   if (data.value) {
     appsStore.value.versions = (data.value.data as Version[]).map((item) => ({
       ...item,
-      id: Number(trackId),
+      trackId: Number(trackId),
     }))
   } else {
     throw createError(error.value.data)
@@ -64,7 +64,7 @@ export const downloadApp = async (version: Version) => {
       appleId: (
         accountInfo!.value as unknown as AppleLoginSuccess["accountInfo"]
       ).appleId,
-      appId: version.id,
+      trackId: version.trackId,
       externalVersionId: version.external_identifier,
       dsPersonId,
     },

@@ -53,7 +53,7 @@ async function run(taskId: string) {
 }
 
 export default defineEventHandler(async (event) => {
-  const { appleId, appId: trackId, externalVersionId } = await readBody(event)
+  const { appleId, trackId, externalVersionId } = await readBody(event)
 
   try {
     const taskId = trackId

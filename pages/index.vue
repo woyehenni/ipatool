@@ -27,6 +27,6 @@ function reset() {
   resetApps()
 }
 function onSelect(row: App) {
-  navigateTo(`app/${row.id}`)
+  navigateTo(`app/${row.trackId}`)
 }
 </script>

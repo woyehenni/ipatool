@@ -3,6 +3,10 @@
     <div class="-mx-4 mt-8 sm:-mx-0">
       <UTable
         :loading
+        :loading-state="{
+          icon: 'i-heroicons-arrow-path-20-solid',
+          label: 'Loading...',
+        }"
         :emptyState="null as unknown as undefined"
         :ui="{
           wrapper: 'overflow-y-hidden',
@@ -18,13 +22,13 @@
         <template #size-data="{ row }">
           <span>{{ (row.size / (1024 * 1024)).toFixed(2) }}MB</span>
         </template>
-        <template #id-data="{ row }">
+        <template #trackId-data="{ row }">
           <ULink
-            :to="`https://apps.apple.com/cn/app/${row.id}`"
+            :to="`https://apps.apple.com/cn/app/${row.trackId}`"
             target="_blank"
             active-class="text-primary"
           >
-            {{ row.id }}
+            {{ row.trackId }}
           </ULink>
         </template>
         <template #actions-data="{ row }">
@@ -67,7 +71,7 @@ const rows = computed(() => {
 })
 // const apps: App[] = [
 //   {
-//     id: 1,
+//     trackId: 1,
 //     title: "test",
 //     description: "description",
 //     category: "phone",
@@ -105,7 +109,7 @@ const columns = [
     rowClass: "hidden sm:table-cell",
   },
   {
-    key: "id",
+    key: "trackId",
     label: "App Id",
     class: "hidden sm:table-cell",
     rowClass: "hidden sm:table-cell text-green-500",

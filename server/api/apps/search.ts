@@ -25,7 +25,7 @@ export default defineEventHandler(async (event) => {
   }
   return {
     data: results.map((item) => ({
-      id: item.trackId,
+      trackId: item.trackId,
       bundleId: item.bundleId,
       appName: item.trackName,
       icon: item.artworkUrl100,

@@ -108,7 +108,7 @@ async function run(
 }
 
 export default defineEventHandler(async (event) => {
-  const { appId: trackId, externalVersionId } = await readBody(event)
+  const { trackId, externalVersionId } = await readBody(event)
 
   const logger = new Logger(LogLevel.INFO)
 
